@@ -56,7 +56,7 @@ export const PeopleAutocomplete: React.FC<Props> = ({
               onSelect(null);
             }}
             onFocus={() => setIsActive(true)}
-            onBlur={() => setIsActive(false)}
+            // onBlur={() => setIsActive(false)}
           />
         </div>
 
@@ -68,7 +68,7 @@ export const PeopleAutocomplete: React.FC<Props> = ({
                   className="dropdown-item"
                   data-cy="suggestion-item"
                   key={person.slug}
-                  onMouseDown={() => {
+                  onClick={() => {
                     onSelect(person);
                     setQuery(person.name);
                     setIsActive(false);
@@ -88,7 +88,7 @@ export const PeopleAutocomplete: React.FC<Props> = ({
         )}
       </div>
 
-      {filteredPeople.length === 0 && lastQuery.length !== 0 && (
+      {filteredPeople.length === 0 && lastQuery.length !== 0 && isActive && (
         <div
           className="
             notification
