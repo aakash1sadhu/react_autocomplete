@@ -55,8 +55,15 @@ export const PeopleAutocomplete: React.FC<Props> = ({
               setQuery(event.target.value);
               onSelect(null);
             }}
-            onFocus={() => setIsActive(true)}
-            // onBlur={() => setIsActive(false)}
+            onFocus={() => {
+              setIsActive(true);
+              setLastQuery('');
+            }}
+            onBlur={() => {
+              setTimeout(() => {
+                setIsActive(false);
+              }, 200);
+            }}
           />
         </div>
 
